@@ -878,8 +878,18 @@ void hw_config_cback(void *p_mem)
     } // if (p_buf != NULL)
 
     /* Free the RX event buffer */
+
+// on manta this causes a crash due to an overrun elsewhere. 
+// Sad as it is, if we just do not do the free here we'll just leak less than 4K each time BT is turned on. 
+// And since when it is turned off, the process dies, this realy only costs us 4K total. 
+// I'm willing to part with 4K to avoid debugging bluedroid
+// So set BCM_BLUETOOTH_MANTA_BUG:=true in Manta BoardConfig.mk to skip the memory deallocation.
+// For other devices this will not have any impact.
+
+#ifndef MANTA_BUG
     if (bt_vendor_cbacks)
         bt_vendor_cbacks->dealloc(p_evt_buf);
+#endif
 
     if (is_proceeding == FALSE)
     {
