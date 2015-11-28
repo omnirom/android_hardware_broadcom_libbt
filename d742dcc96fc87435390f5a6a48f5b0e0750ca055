@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8f5b13e_11bbaa22",
+        "filename": "src/hardware.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2015-11-28T16:54:05Z",
+      "side": 1,
+      "message": "whitespace nitpick :)",
+      "revId": "d742dcc96fc87435390f5a6a48f5b0e0750ca055",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
