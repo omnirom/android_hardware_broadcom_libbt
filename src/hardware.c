@@ -1126,9 +1126,6 @@ void hw_config_start(void)
     hw_cfg_cb.fw_fd = -1;
     hw_cfg_cb.f_set_baud_2 = FALSE;
 
-#ifdef BLUEDROID_ENABLE_V4L2
-    bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_SUCCESS);
-#else
     /* Start from sending HCI_RESET */
 
     if (bt_vendor_cbacks)
@@ -1160,7 +1157,6 @@ void hw_config_start(void)
             bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_FAIL);
         }
     }
-#endif
 }
 
 /*******************************************************************************

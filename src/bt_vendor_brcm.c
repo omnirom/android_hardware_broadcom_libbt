@@ -137,7 +137,6 @@ static int op(bt_vendor_opcode_t opcode, void *param)
     switch(opcode)
     {
         case BT_VND_OP_POWER_CTRL:
-#ifndef BLUEDROID_ENABLE_V4L2
             {
                 int *state = (int *) param;
                 if (*state == BT_VND_PWR_OFF)
@@ -145,7 +144,6 @@ static int op(bt_vendor_opcode_t opcode, void *param)
                 else if (*state == BT_VND_PWR_ON)
                     upio_set_bluetooth_power(UPIO_BT_POWER_ON);
             }
-#endif
             break;
 
         case BT_VND_OP_FW_CFG:
